@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <%- include('partials/header') %>
+
+    <main
+      class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-xl"
+    >
+      <h2 class="text-2xl text-red-500 font-bold text-center mb-6">
+        Here are our registered home:
+      </h2>
+      <!-- <ul class="space-y-4">
+  <% registeredHomes.forEach(home => { %>
+    <li class=" bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+      <p class=" text-lg text-gray-800"><%= home.house %></p>
+    </li>
+  <% }) %>
+</ul> -->
+
+<!-- <ul class="space-y-4">
+  <% registeredHomes.forEach(home => { %>
+    <li class="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+      <p class="text-lg text-gray-800 font-semibold">🏠 <%= home.house %></p>
+      <p class="text-gray-700">💰 Price: ₹<%= home.price %></p>
+      <p class="text-gray-700">📍 Location: <%= home.location %></p>
+      <p class="text-gray-700">⭐ Rating: <%= home.rating %> / 5</p>
+
+      <% if (home.photourl) { %>
+        <img src="<%= home.photourl %>" alt="Home Photo" class="mt-2 rounded-lg max-h-60 w-full object-cover">
+      <% } %>
+    </li>
+  <% }) %>
+</ul> -->
+
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <% registeredHomes.forEach(home => { %>
+    <li class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-gray-200">
+      <% if (home.photoUrl) { %>
+        <img src="<%= home.photoUrl %>" alt="Home Photo" class="w-full h-48 object-cover">
+      <% } else { %>
+        <div class="w-full h-48 bg-gradient-to-r from-red-400 to-pink-500 flex items-center justify-center text-white text-xl font-bold">
+          No Image
+        </div>
+      <% } %>
+
+      <div class="p-4">
+        <h3 class="text-xl font-bold text-red-500 mb-1">
+          🏠 <%= home.houseName %>
+        </h3>
+        
+        <div class="flex flex-wrap gap-2 text-sm text-gray-600 mb-2">
+          <span class="bg-gray-100 px-2 py-1 rounded-full">💰 ₹<%= home.price %></span>
+          <span class="bg-gray-100 px-2 py-1 rounded-full">📍 <%= home.location %></span>
+          <span class="bg-yellow-100 px-2 py-1 rounded-full">⭐ <%= home.rating %>/5</span>
+        </div>
+
+        <button class="mt-2 w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition">
+          Book Now
+        </button>
+      </div>
+    </li>
+  <% }) %>
+</ul>
+
+
+    </main>
+  </body>
+</html>
