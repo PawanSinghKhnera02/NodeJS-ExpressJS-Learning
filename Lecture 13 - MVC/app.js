@@ -6,8 +6,8 @@ const express = require("express");
 
 //local module
 const rootdir = require("./utils/pathUtils");
-const userRouter = require("./routes/userRouter");
-const { hostRouter } = require("./routes/hostRouter");
+const storeRouter = require("./routes/storeRouter");
+const hostRouter = require("./routes/hostRouter");
 const errorsController = require("./controllers/errors");
 
 const app = express();
@@ -15,7 +15,7 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(express.urlencoded());
-app.use(userRouter);
+app.use("/store", storeRouter);
 app.use("/host", hostRouter);
 
 app.use(express.static(path.join(rootdir, "public")));

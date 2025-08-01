@@ -1,11 +1,39 @@
-<header class="bg-red-500 text-white p-4 shadow-md">
+<!-- <header class="bg-red-500 text-white p-4 shadow-md">
   <nav class="container mx-auto flex justify-between items-center">
     <ul class="flex space-x-4">
       <li>
         <a
-          href="/"
+          href="/store"
+          class=" <%= currentPage === "index" ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded transition duration-300"
+          >Airbnb</a
+        >
+      </li>
+      <li>
+        <a
+          href="/store/homes"
           class=" <%= currentPage === "Home" ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded transition duration-300"
-          >Home</a
+          >Homes-List</a
+        >
+      </li>
+      <li>
+        <a
+          href="/store/favourites"
+          class="<%= currentPage === "favourites" ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded transition duration-300"
+          >Favourites</a
+        >
+      </li>
+      <li>
+        <a
+          href="/store/bookings"
+          class="<%= currentPage === "bookings" ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded transition duration-300"
+          >Bookings</a
+        >
+      </li>
+      <li>
+        <a
+          href="/host/host-home-list"
+          class="<%= currentPage === "host-homes" ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded transition duration-300"
+          >Host Homes</a
         >
       </li>
       <li>
@@ -17,4 +45,77 @@
       </li>
     </ul>
   </nav>
+</header> -->
+
+<header class="bg-red-500 text-white shadow-md">
+  <nav
+    class="container mx-auto flex items-center justify-between flex-wrap p-4"
+  >
+    <!-- Logo -->
+    <a href="/store" class="text-2xl font-bold">Airbnb</a>
+
+    <!-- Hamburger Menu -->
+    <button id="menu-toggle" class="text-white md:hidden focus:outline-none">
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- Menu Items -->
+    <div
+      id="menu"
+      class="w-full md:flex md:items-center md:w-auto hidden flex-col md:flex-row mt-4 md:mt-0 space-y-2 md:space-y-0 md:space-x-4"
+    >
+      <a
+        href="/store"
+        class="<%= currentPage === 'index' ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded block"
+        >Airbnb</a
+      >
+      <a
+        href="/store/homes"
+        class="<%= currentPage === 'Home' ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded block"
+        >Homes-List</a
+      >
+      <a
+        href="/store/favourites"
+        class="<%= currentPage === 'favourites' ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded block"
+        >Favourites</a
+      >
+      <a
+        href="/store/bookings"
+        class="<%= currentPage === 'bookings' ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded block"
+        >Bookings</a
+      >
+      <a
+        href="/host/host-home-list"
+        class="<%= currentPage === 'host-homes' ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded block"
+        >Host Homes</a
+      >
+      <a
+        href="/host/add-home"
+        class="<%= currentPage === 'addHome' ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded block"
+        >Add Home</a
+      >
+    </div>
+  </nav>
 </header>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+
+  menuToggle.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script>

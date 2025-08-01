@@ -1,38 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head') %>
+<%- include('../partials/head') %>
   </head>
   <body class="bg-gray-100 font-sans">
-    <%- include('partials/header') %>
+    <%- include('../partials/header') %>
 
     <main
       class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-xl"
     >
       <h2 class="text-2xl text-red-500 font-bold text-center mb-6">
-        Here are our registered home:
+        Here are our favourite list:
       </h2>
-      <!-- <ul class="space-y-4">
-  <% registeredHomes.forEach(home => { %>
-    <li class=" bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-      <p class=" text-lg text-gray-800"><%= home.house %></p>
-    </li>
-  <% }) %>
-</ul> -->
-
-<!-- <ul class="space-y-4">
-  <% registeredHomes.forEach(home => { %>
-    <li class="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-      <p class="text-lg text-gray-800 font-semibold">🏠 <%= home.house %></p>
-      <p class="text-gray-700">💰 Price: ₹<%= home.price %></p>
-      <p class="text-gray-700">📍 Location: <%= home.location %></p>
-      <p class="text-gray-700">⭐ Rating: <%= home.rating %> / 5</p>
-
-      <% if (home.photourl) { %>
-        <img src="<%= home.photourl %>" alt="Home Photo" class="mt-2 rounded-lg max-h-60 w-full object-cover">
-      <% } %>
-    </li>
-  <% }) %>
-</ul> -->
 
 <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
   <% registeredHomes.forEach(home => { %>
@@ -56,7 +34,7 @@
           <span class="bg-yellow-100 px-2 py-1 rounded-full">⭐ <%= home.rating %>/5</span>
         </div>
 
-        <button class="mt-2 w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition">
+        <button class="mt-2 w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">
           Book Now
         </button>
       </div>
