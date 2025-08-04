@@ -34,12 +34,18 @@
           <span class="bg-yellow-100 px-2 py-1 rounded-full">⭐ <%= home.rating %>/5</span>
         </div>
 
-        <button class="mt-2 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+        <a
+          href="/host/edit-home/<%=home.id%>?editing=true"
+          class="mt-2 inline-block w-full bg-blue-500 text-white text-center py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+        >
           Edit
-        </button>
-        <button class="mt-2 w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition">
-          Delete
-        </button>
+        </a>
+        <form action="/host/delete-home/<%=home.id%>" method="POST">
+          <button type="submit" class="mt-2 w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition">
+            Delete
+          </button> 
+
+        </form>
       </div>
     </li>
   <% }) %>

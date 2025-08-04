@@ -55,10 +55,10 @@ exports.postAddToFavourite = (req, res, next) => {
 };
 
 exports.postRemoveFromFavourite = (req, res, next) => {
-  console.log("Removing from favourite:", req.body.id);
-  Favourite.removeFromFavourite(req.body.id, (error) => {
+  const homeId = req.params.homeId;
+  Favourite.deleteByID(homeId, (error) => {
     if (error) {
-      console.log("Error while removing favourite: ", error);
+      console.log("error while removing from favourite", error);
     }
     res.redirect("/store/favourites");
   });

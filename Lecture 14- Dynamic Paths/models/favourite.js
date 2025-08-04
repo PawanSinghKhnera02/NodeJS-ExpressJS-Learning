@@ -38,38 +38,14 @@ module.exports = class Favourite {
     });
   }
 
-  static removeFromFavourite(homeId, callback) {
-    Favourite.getFavourites((favourites) => {
-      const updatedFavourites = favourites.filter((id) => id !== homeId);
-      fs.writeFile(
-        favouriteDataPath,
-        JSON.stringify(updatedFavourites),
-        callback
+  static deleteByID(delHomeId, callback) {
+    Favourite.getFavourites((homeIds) => {
+      homeIds = homeIds.filter(
+        (homeId) => delHomeId.toString() !== homeId.toString()
       );
+      fs.writeFile(favouriteDataPath, JSON.stringify(homeIds), callback);
     });
   }
-
-  // static getFavourites(callback) {
-  //   fs.readFile(favouriteDataPath, (err, data) => {
-  //     if (err) {
-  //       // If file doesn't exist or reading fails
-  //       callback([]);
-  //     } else {
-  //       try {
-  //         // Handle empty file case
-  //         const fileContent = data.toString().trim();
-  //         const favourites = fileContent ? JSON.parse(fileContent) : [];
-  //         callback(Array.isArray(favourites) ? favourites : []);
-  //       } catch (parseErr) {
-  //         console.error(
-  //           "❌ Invalid JSON in favourites.json:",
-  //           parseErr.message
-  //         );
-  //         callback([]); // fallback to empty array
-  //       }
-  //     }
-  //   });
-  // }
 };
 
 //this is a favourite model file
