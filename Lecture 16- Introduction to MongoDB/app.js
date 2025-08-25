@@ -30,3 +30,16 @@ mongoConnect(() => {
     console.log(`server is running on address http://localhost: ${PORT}/`);
   });
 });
+
+// const startServer = async () => {
+//   try {
+//     await mongoConnect(); // yaha DB connect hoga
+//     app.listen(PORT, () => {
+//       console.log(`server is running on http://localhost:${PORT}/`);
+//     });
+//   } catch (err) {
+//     console.log("DB connection failed:", err);
+//   }
+// };
+
+// startServer();
