@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+
+    <main class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
+      <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">
+        Register as a new User
+      </h1>
+
+      <%- include('../partials/errors') %>
+      <form action="/signup" method="POST" class="max-w-md mx-auto space-y-4">
+        <div class="space-y-4">
+          <!-- First Name -->
+          <input
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            value="<%= oldInput.firstName ? oldInput.firstName : '' %>"
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            required
+          />
+
+          <!-- Last Name -->
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            value="<%= oldInput.lastName ? oldInput.lastName : '' %>"
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            required
+          />
+
+          <!-- Email -->
+          <input
+            type="email"
+            name="email"
+            placeholder="text@example.com"
+            value="<%= oldInput.email ? oldInput.email : '' %>"
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            required
+          />
+
+          <!-- Password -->
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value="<%= oldInput.password ? oldInput.password : '' %>"
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            required
+          />
+
+          <!-- Confirm Password -->
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            required
+          />
+
+          <!-- UserType -->
+          <div class="bg-gray-50 p-4 rounded-md">
+            <p class="mb-2 font-medium text-gray-700">Select User Type:</p>
+            <div class="flex items-center gap-6">
+              <label class="flex items-center cursor-pointer">
+                <input type="radio" name="userType" value="guest" id="guest"
+                class="w-4 h-4 text-red-500 focus:ring-red-500" <%=
+                oldInput.userType === "guest" ? "checked" : "" %> />
+                <span class="ml-2 text-gray-700">Guest</span>
+              </label>
+              <label class="flex items-center cursor-pointer">
+                <input type="radio" name="userType" value="host" id="host"
+                class="w-4 h-4 text-red-500 focus:ring-red-500" <%=
+                oldInput.userType === "host" ? "checked" : "" %> />
+
+                <span class="ml-2 text-gray-700">Host</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Terms and Conditions -->
+          <div class="flex items-center">
+            <input
+              type="checkbox"
+              name="terms"
+              id="terms"
+              class="w-4 h-4 text-red-500 border-gray-300 rounded focus:ring-red-500"
+              required
+            />
+            <label for="terms" class="ml-2 text-gray-700">
+              I agree to the
+              <a href="#" class="text-red-500 hover:underline"
+                >terms and conditions</a
+              >
+            </label>
+          </div>
+
+          <!-- Submit -->
+          <input
+            type="submit"
+            value="Register"
+            class="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300 cursor-pointer"
+          />
+
+          <!-- Login Option -->
+          <div class="text-center mt-4">
+            <p class="text-gray-600">
+              Already have an account?
+              <a href="/login" class="text-red-500 hover:underline font-medium"
+                >Login here</a
+              >
+            </p>
+          </div>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

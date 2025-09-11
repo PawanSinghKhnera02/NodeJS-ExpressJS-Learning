@@ -1,0 +1,21 @@
+const mongoose = require("mongoose");
+
+const homeSchema = mongoose.Schema({
+  houseName: { type: String, required: true },
+  price: { type: Number, required: true },
+  location: { type: String, required: true },
+  rating: { type: Number, required: true },
+  photo: String,
+  description: String,
+});
+
+// this is a pre hook - when we try to delete the home from host then it will delete from fav as well
+
+// homeSchema.pre("findOneAndDelete", async function (next) {
+//   console.log("came to pre hook while deleting a home");
+//   const homeId = this.getQuery()._id;
+//   await favourite.deleteMany({ houseId: homeId });
+//   next();
+// });
+
+module.exports = mongoose.model("Home", homeSchema);
