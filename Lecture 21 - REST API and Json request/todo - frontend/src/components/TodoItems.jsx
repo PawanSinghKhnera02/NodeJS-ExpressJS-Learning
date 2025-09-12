@@ -1,18 +1,21 @@
 import TodoItem from "./TodoItem";
-import styles from "./TodoItems.module.css";
 
-const TodoItems = ({ todoItems, onDeleteClick }) => {
+function TodoItems({ todoItems, onDeleteClick, onToggleComplete, completed }) {
   return (
-    <div className={styles.itemsContainer}>
+    <div className="space-y-4">
       {todoItems.map((item) => (
         <TodoItem
+          key={item.id}
+          id={item.id}
           todoDate={item.dueDate}
           todoName={item.name}
+          completed={item.completed}
           onDeleteClick={onDeleteClick}
-        ></TodoItem>
+          onToggleComplete={onToggleComplete}
+        />
       ))}
     </div>
   );
-};
+}
 
 export default TodoItems;

@@ -3,20 +3,22 @@ const path = require("path");
 
 //External Module
 const express = require("express");
-
 const { default: mongoose } = require("mongoose");
+const cors = require("cors");
 
 const DB_PATH =
   "mongodb+srv://root:root@pawanlearning.hlcvopr.mongodb.net/todo?retryWrites=true&w=majority&appName=PawanLearning";
 
 //local module
+const todoItemsRouter = require("./routes/todoItemsRouter");
 const errorsController = require("./controllers/errors");
 
 const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
 
-app.use(express.urlencoded());
-
-app.use(express.static(path.join(rootdir, "public")));
+app.use("/api/todo", todoItemsRouter);
 
 app.use(errorsController.pageNotFound);
 
